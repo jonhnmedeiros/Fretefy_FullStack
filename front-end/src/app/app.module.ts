@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { CadastroRegiaoComponent } from './components/cadastro-regiao/cadastro-regiao.component';
 import { ListarRegioesComponent } from './components/listar-regioes/listar-regioes.component';
 import { SeletorCidadeComponent } from './components/seletor-cidade/seletor-cidade.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SeletorCidadeComponent } from './components/seletor-cidade/seletor-cida
     SeletorCidadeComponent
   ],
   imports: [
-    BrowserModule,
+    CommonModule,
+    RouterModule,
     RouterModule,
     ReactiveFormsModule,
     HomeModule,
