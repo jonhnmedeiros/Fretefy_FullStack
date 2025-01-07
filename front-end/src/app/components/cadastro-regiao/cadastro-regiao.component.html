@@ -1,0 +1,30 @@
+<h2>{{ editMode ? 'Editar Região' : 'Cadastrar Região' }}</h2>
+<form [formGroup]="regiaoForm" (ngSubmit)="salvar()">
+  <div>
+    <label for="nome">Nome</label>
+    <input id="nome" formControlName="nome" />
+    <div *ngIf="regiaoForm.get('nome')?.invalid && regiaoForm.get('nome')?.touched">
+      O nome é obrigatório.
+    </div>
+  </div>
+
+  <div formArrayName="cidades">
+    <h3>Cidades</h3>
+    <div *ngFor="let cidade of cidades.controls; let i = index" [formGroupName]="i">
+      <label for="cidade-{{ i }}">Cidade</label>
+      <input id="cidade-{{ i }}" formControlName="cidade" />
+
+      <label for="uf-{{ i }}">UF</label>
+      <input id="uf-{{ i }}" formControlName="uf" />
+
+      <button type="button" (click)="removerCidade(i)">Remover</button>
+    </div>
+  </div>
+
+  <button type="button" (click)="adicionarCidade()">Adicionar Cidade</button>
+
+  <div>
+    <button type="submit">{{ editMode ? 'Salvar Alterações' : 'Salvar' }}</button>
+    <button type="button" (click)="cancelar()">Cancelar</button>
+  </div>
+</form>
