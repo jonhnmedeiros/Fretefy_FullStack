@@ -20,6 +20,9 @@
   </div>
 
   <app-seletor-cidade (cidadeSelecionada)="cidadeSelecionada = $event"></app-seletor-cidade>
+  <div *ngIf="regiaoForm.get('cidades')?.value.length === 0">
+    A cidade é obrigatória.
+  </div>
   <button type="button" (click)="adicionarCidade()">Adicionar Cidade</button>
 
   <div>

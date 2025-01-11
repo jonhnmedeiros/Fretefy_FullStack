@@ -93,7 +93,7 @@ export class RegiaoService {
   private cidadesSubject = new BehaviorSubject<Cidade[]>(this.cidades);
 
   verificarNomeUnico(nome: string): boolean {
-    return this.regioes.some((r) => r.nome.toLowerCase() === nome.toLowerCase());
+    return this.regioes.some((r) => r.nome === nome);
   }
 
   listarRegioes(): Observable<Regiao[]> {
