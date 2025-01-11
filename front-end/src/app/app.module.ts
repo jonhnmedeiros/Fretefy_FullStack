@@ -1,17 +1,12 @@
-
-import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeModule } from './modules/home/home.module';
-import { ToolbarModule } from './components/toolbar/toolbar.module';
-import { RouterModule } from '@angular/router';
-import { CadastroRegiaoComponent } from './components/cadastro-regiao/cadastro-regiao.component';
-import { ListarRegioesComponent } from './components/listar-regioes/listar-regioes.component';
-import { SeletorCidadeComponent } from './components/seletor-cidade/seletor-cidade.component';
-import { CommonModule } from '@angular/common';
-
+import { CadastroRegiaoComponent } from './regiao/cadastro-regiao/cadastro-regiao.component';
+import { ListarRegioesComponent } from './regiao/listar-regioes/listar-regioes.component';
+import { SeletorCidadeComponent } from './regiao/seletor-cidade/seletor-cidade.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,14 +16,10 @@ import { CommonModule } from '@angular/common';
     SeletorCidadeComponent
   ],
   imports: [
-    CommonModule,
-    RouterModule,
-    RouterModule,
+    BrowserModule,
+    AppRoutingModule,
     ReactiveFormsModule,
-    HomeModule,
-    ToolbarModule,
-
-    AppRoutingModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

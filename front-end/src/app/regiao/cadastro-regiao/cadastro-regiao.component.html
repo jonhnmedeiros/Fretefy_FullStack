@@ -11,16 +11,15 @@
   <div formArrayName="cidades">
     <h3>Cidades</h3>
     <div *ngFor="let cidade of cidades.controls; let i = index" [formGroupName]="i">
-      <label for="cidade-{{ i }}">Cidade</label>
-      <input id="cidade-{{ i }}" formControlName="cidade" />
-
-      <label for="uf-{{ i }}">UF</label>
-      <input id="uf-{{ i }}" formControlName="uf" />
-
+      <app-seletor-cidade [formControl]="getFormControl(cidade.get('cidade'))" ></app-seletor-cidade>
+      <div *ngIf="cidade.get('cidade')?.invalid && cidade.get('cidade')?.touched">
+        A cidade é obrigatória.
+      </div>
       <button type="button" (click)="removerCidade(i)">Remover</button>
     </div>
   </div>
 
+  <app-seletor-cidade (cidadeSelecionada)="cidadeSelecionada = $event"></app-seletor-cidade>
   <button type="button" (click)="adicionarCidade()">Adicionar Cidade</button>
 
   <div>

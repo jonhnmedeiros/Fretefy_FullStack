@@ -1,9 +1,9 @@
 <h2>Listagem de Regiões</h2>
 <button routerLink="/regioes/cadastro">Cadastrar Nova Região</button>
+<button (click)="exportarParaExcel()">Exportar para Excel</button>
 <table>
   <thead>
     <tr>
-      <th>ID</th>
       <th>Nome</th>
       <th>Cidades</th>
       <th>Status</th>
@@ -12,11 +12,10 @@
   </thead>
   <tbody>
     <tr *ngFor="let regiao of regioes$ | async">
-      <td>{{ regiao.id }}</td>
       <td>{{ regiao.nome }}</td>
       <td>
         <span *ngFor="let cidade of regiao.cidades">
-          {{ cidade.cidade }} ({{ cidade.uf }})
+          {{ obterCidadePorId(cidade.cidade)?.cidade }} ({{ obterCidadePorId(cidade.id)?.uf }})
         </span>
       </td>
       <td>{{ regiao.ativa ? 'Ativa' : 'Inativa' }}</td>

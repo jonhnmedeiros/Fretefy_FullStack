@@ -1,29 +1,17 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './modules/home/home.component';
+import { RouterModule, Routes } from '@angular/router';
+import { ListarRegioesComponent } from './regiao/listar-regioes/listar-regioes.component';
+import { CadastroRegiaoComponent } from './regiao/cadastro-regiao/cadastro-regiao.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'regiao',
-    loadChildren: () => import('./modules/regiao/regiao.module').then(m => m.RegiaoModule)
-  },
-  { 
-    path: '**', 
-    redirectTo: '/home' 
-  }
+  { path: '', redirectTo: 'regioes', pathMatch: 'full' },
+  { path: 'regioes', component: ListarRegioesComponent },
+  { path: 'regioes/cadastro', component: CadastroRegiaoComponent },
+  { path: 'regioes/editar/:id', component: CadastroRegiaoComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
