@@ -30,8 +30,16 @@ export class ListarRegioesComponent implements OnInit {
   }
 
   exportarParaExcel(): void {
-    this.regiaoService.listarRegioesXlsx().subscribe((regioes) => {
-      const worksheet = XLSX.utils.json_to_sheet(regioes);
+    let regioesFormatadas;
+    this.regiaoService.listarRegioes().subscribe((regioes) => {
+      regioesFormatadas = regioes.map((regiao: any) => {
+          return {
+            'Nome': regiao.nome,
+            'Ativo': regiao.ativa ? 'Sim' : 'Não',
+            'Cidades': regiao.cidades.map((cidade: any) => cidade.cidade).join(', '),
+          };
+      });
+      const worksheet = XLSX.utils.json_to_sheet(regioesFormatadas);
       const workbook = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(workbook, worksheet, 'Regiões');
   

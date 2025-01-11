@@ -15,7 +15,7 @@
       <td>{{ regiao.nome }}</td>
       <td>
         <span *ngFor="let cidade of regiao.cidades">
-          {{ obterCidadePorId(cidade.cidade)?.cidade }} ({{ obterCidadePorId(cidade.id)?.uf }})
+          {{ obterCidadePorId(cidade.id)?.cidade }} ({{ obterCidadePorId(cidade.id)?.uf }})
         </span>
       </td>
       <td>{{ regiao.ativa ? 'Ativa' : 'Inativa' }}</td>

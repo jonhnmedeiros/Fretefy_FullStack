@@ -1,5 +1,5 @@
 
 <!-- <select [formControl]="formControl" (change)="onSelect($event)"> -->
-<select [formControl]="formControl" (change)="onSelect($event)" [value]="selectedCidadeId">
+<select [formControl]="formControl" (change)="onSelect($event)" >
     <option *ngFor="let cidade of cidades" [value]="cidade.id">{{ cidade.cidade }}</option>
 </select>

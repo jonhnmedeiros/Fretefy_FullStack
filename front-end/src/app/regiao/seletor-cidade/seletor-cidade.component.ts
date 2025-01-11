@@ -31,36 +31,17 @@ export class SeletorCidadeComponent implements OnInit {
 
   constructor() {}
 
-  selectedCidadeId: string = '0'; // Default selected city ID
-
   ngOnInit(): void {
-    console.log('Form control:', this.formControl);
-    if (this.formControl) {
-      this.formControl.valueChanges.subscribe((value) => {
-        console.log('Form control value:', value);
-        //this.selectedCidadeId = value.id;
-        this.setSelectedCidade(this.selectedCidadeId);
-      });
-    }
-    this.setSelectedCidade(this.selectedCidadeId);
-  }
-
-  setSelectedCidade(id: string) {
-    const cidade = this.cidades.find((cidade) => cidade.id === id);
-    if (cidade) {
-      console.log('Cidade selecionada set:', cidade);
-      this.selectedCidadeId = cidade.id;
+    if (!this.formControl) {
+      this.formControl = new FormControl('0');
     }
   }
 
   onSelect(event: Event) {
     const target = event.target as HTMLSelectElement;
     const value = target.value;
-    console.log('Cidade selecionada:', value);
     const cidade = this.cidades.find((cidade) => cidade.id === value);
-    console.log('Cidade:', cidade);
     if (cidade) {
-      this.setSelectedCidade(cidade.id);
       this.cidadeSelecionada.emit(cidade);
     }
   }
