@@ -25,7 +25,7 @@
     Adicione ao menos uma região
   </div>
   <div class="center">
-    <button type="button" (click)="adicionarCidade()">Adicionar local</button>
+    <button type="button" [disabled]="cidadeSelecionada.id == '0' || cidadeSelecionada.id == ''" (click)="adicionarCidade()">Adicionar local</button>
   </div>
   
 
