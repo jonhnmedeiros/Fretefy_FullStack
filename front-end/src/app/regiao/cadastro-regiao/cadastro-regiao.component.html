@@ -11,8 +11,8 @@
 
   <div formArrayName="cidades">
     <h3>Locais da região</h3>
-    <div *ngFor="let cidade of cidades.controls; let i = index" [formGroupName]="i">
-      <app-seletor-cidade [formControl]="getFormControl(cidade.get('id'))" ></app-seletor-cidade>
+    <div *ngFor="let cidade of cidades.controls; let i = index">
+      <app-seletor-cidade [control]="getFormControl(cidade.get('id'))" ></app-seletor-cidade>
       <div class="error" *ngIf="cidade.get('cidade')?.invalid && cidade.get('cidade')?.touched">
         A cidade é obrigatória.
       </div>

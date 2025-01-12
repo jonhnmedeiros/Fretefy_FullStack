@@ -6,7 +6,7 @@ import { FormControl } from '@angular/forms';
   templateUrl: './seletor-cidade.component.html',
 })
 export class SeletorCidadeComponent implements OnInit {
-  @Input() formControl!: FormControl;
+  @Input() control!: FormControl;
   @Input() label = true;
   @Output() cidadeSelecionada = new EventEmitter<{id:string; cidade: string; uf: string }>();
 
@@ -33,8 +33,8 @@ export class SeletorCidadeComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    if (!this.formControl) {
-      this.formControl = new FormControl('0');
+    if (!this.control) {
+      this.control = new FormControl('0');
     }
   }
 
