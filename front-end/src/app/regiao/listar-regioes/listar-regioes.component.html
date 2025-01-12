@@ -1,10 +1,13 @@
-<h2>Listagem de Regiões</h2>
-<button routerLink="/regioes/cadastro">Cadastrar Nova Região</button>
-<button (click)="exportarParaExcel()">Exportar para Excel</button>
+<h2>Regiões</h2>
+<div class="space-between">
+  <button routerLink="/regioes/cadastro">Cadastrar</button>
+  <button (click)="exportarParaExcel()">Exportar</button>
+</div>
+
 <table>
   <thead>
     <tr>
-      <th>Nome</th>
+      <th>Nome da região</th>
       <th>Cidades</th>
       <th>Status</th>
       <th>Ações</th>

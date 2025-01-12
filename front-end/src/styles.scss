@@ -1,7 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
@@ -13,16 +11,21 @@ body {
 h1 {
     font-size: 24px;
     margin-bottom: 20px;
+    color: #333;
 }
 
 h2 {
     font-size: 20px;
     margin-bottom: 20px;
+    color: gray;
+    font-weight: 400;
 }
 
 h3 {
     font-size: 18px;
     margin-bottom: 20px;
+    color: #0056b3;
+    font-weight: 400;
 }
 
 input {
@@ -32,13 +35,15 @@ input {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+    color: #0056b3
 }
 
 label {
     font-size: 16px;
     margin-bottom: 5px;
     display: block;
-    font-weight: bold;
+    font-weight: 400;
+    color: gray;
 }
 
 button {
@@ -50,7 +55,7 @@ button {
     cursor: pointer;
     margin-bottom: 10px;
     margin-right: 10px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 button:hover {
@@ -64,6 +69,7 @@ select {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+    color: #0056a4
 }
 
 option {
@@ -86,14 +92,18 @@ table {
 }
 
 th {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #2a6bab5a;
+    color: rgba(25, 25, 112, 0.651);
     padding: 10px;
+    font-weight: 400;
+    border: 1px solid #ccc;
 }
 
 td {
     padding: 10px;
     border-bottom: 1px solid #ccc;
+    font-weight: 300;
+    color: #333;
 }
 
 thead {
@@ -103,5 +113,22 @@ thead {
 
 div {
     margin-bottom: 20px;
+}
+
+.center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.error {
+    color: red;
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
 }
 

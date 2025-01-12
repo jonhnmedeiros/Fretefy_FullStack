@@ -7,10 +7,11 @@ import { FormControl } from '@angular/forms';
 })
 export class SeletorCidadeComponent implements OnInit {
   @Input() formControl!: FormControl;
+  @Input() label = true;
   @Output() cidadeSelecionada = new EventEmitter<{id:string; cidade: string; uf: string }>();
 
   cidades = [
-    { id:'0', cidade: 'Selecione a cidade para adicionar', uf: '' },
+    { id:'0', cidade: 'Cidade', uf: '' },
     { id:'1', cidade: 'Curitiba', uf: 'PR' },
     { id:'2', cidade: 'São Paulo', uf: 'SP' },
     { id:'3', cidade: 'Rio de Janeiro', uf: 'RJ' },
