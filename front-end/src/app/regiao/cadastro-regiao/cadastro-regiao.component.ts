@@ -51,7 +51,7 @@ export class CadastroRegiaoComponent implements OnInit {
     if (!cidadesJaAdicionadas.includes(novaCidade.cidade)) {
       const cidadeGroup = new FormGroup({
         id: new FormControl(novaCidade.id),
-        cidade: new FormControl(novaCidade.id, [Validators.required]),
+        cidade: new FormControl(novaCidade.cidade, [Validators.required]),
         uf: new FormControl(novaCidade.uf, [Validators.required]),
       });
       this.cidades.push(cidadeGroup);
@@ -70,6 +70,12 @@ export class CadastroRegiaoComponent implements OnInit {
       return;
     }
 
+    if (this.regiaoId === null) {
+      this.regiaoService.listarRegioes().subscribe((regioes) => {
+        this.regiaoId = regioes.length + 1;
+      });
+    }
+    
     const regiao = {
       id: this.regiaoId!,
       nome: this.regiaoForm.get('nome')?.value || '',
@@ -97,6 +103,7 @@ export class CadastroRegiaoComponent implements OnInit {
     this.regiaoService.listarRegioes().subscribe((regioes) => {
       const regiao = regioes.find((r) => r.id === id);
       if (regiao) {
+        console.log('Região:', regiao);
         this.regiaoForm.get('nome')?.setValue(regiao.nome);
         regiao.cidades.forEach((cidade) => {
           const cidadeGroup = new FormGroup({
