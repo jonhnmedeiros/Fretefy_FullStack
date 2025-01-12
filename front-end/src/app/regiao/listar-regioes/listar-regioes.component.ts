@@ -25,7 +25,6 @@ export class ListarRegioesComponent implements OnInit {
 
   ngOnInit(): void {
     this.regioes$ = this.regiaoService.listarRegioes();
-    console.log(this.regioes$);
   }
 
   ativarOuDesativar(id: number): void {

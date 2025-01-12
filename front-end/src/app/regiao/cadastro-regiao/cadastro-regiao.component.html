@@ -5,7 +5,7 @@
     <label for="nome">Nome da região *</label>
     <input id="nome" formControlName="nome" />
     <div class="error" *ngIf="regiaoForm.get('nome')?.invalid && regiaoForm.get('nome')?.touched">
-      O nome é obrigatório.
+      Digite o nome da região
     </div>
   </div>
 
@@ -21,8 +21,8 @@
   </div>
 
   <app-seletor-cidade [label]="false" (cidadeSelecionada)="cidadeSelecionada = $event"></app-seletor-cidade>
-  <div class="error" *ngIf="regiaoForm.get('cidades')?.value.length === 0">
-    A cidade é obrigatória.
+  <div class="" *ngIf="regiaoForm.get('cidades')?.value.length === 0">
+    Adicione ao menos uma região
   </div>
   <div class="center">
     <button type="button" (click)="adicionarCidade()">Adicionar local</button>

@@ -44,7 +44,6 @@ export class CadastroRegiaoComponent implements OnInit {
   }
 
   adicionarCidade(): void {
-    console.log('Cidade selecionada:', this.cidadeSelecionada);
     const novaCidade = this.cidadeSelecionada;
     const cidadesJaAdicionadas = this.cidades.value.map((c: any) => c.cidade);
 
@@ -83,10 +82,7 @@ export class CadastroRegiaoComponent implements OnInit {
       ativa: true // ou false, dependendo do estado da região
     };
 
-    console.log('Salvar Região:', regiao);
-
     if (this.editMode) {
-      console.log('Editar Região:', regiao);
       this.regiaoService.editarRegiao(this.regiaoId!, regiao);
     } else {
       this.regiaoService.adicionarRegiao(regiao);
